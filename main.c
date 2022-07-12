@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:48:15 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 14:48:19 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 15:00:58 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,19 @@ void	print_stack(t_stack stack);
 int	main(int argc, char **argv)
 {
 	t_stack	stack_a;
-//	t_stack	stack_b;
+	t_stack	stack_b;
 
 	stack_a = new_stack();
-//	stack_b = new_stack();
+	stack_b = new_stack();
 	if (build_stack(&stack_a, argc, argv) < 0)
+	{
+		destroy_stack(&stack_a);
+		destroy_stack(&stack_b);
 		return (-1);
-	print_stack(stack_a);
+	}
+	destroy_stack(&stack_a);
+	destroy_stack(&stack_b);
+	system("leaks push_swap");
 }
 
 void	print_stack(t_stack stack)

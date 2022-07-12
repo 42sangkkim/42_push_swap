@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 14:48:47 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 14:58:05 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ int		push_input(t_stack *stack, char *input);
 
 void	to_space(unsigned int i, char *s)
 {
-	if (i < 0)
-		return ;
+	i = 0;
 	if (*s == '\t' || *s == '\n' || *s == '\v'
 		|| *s == '\f' || *s == '\r')
 		*s = ' ';
 }
 
-//	인자 하나에 숫자가 아무것도 없으면 error 일까요?
 int	build_stack(t_stack *stack, int argc, char **argv)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:50:14 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 13:50:12 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 15:03:01 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ void	destroy_stack(t_stack *stack)
 	t_node	*node;
 
 	node = stack->top;
-	while (stack->len--)
-	{
-		node = node->next;
-		free(node->prev);
-	}
-	stack->top = NULL;
+	while (stack->len)
+		pop(stack, NULL);
 }
 
 int	push(t_stack *stack, int value)
@@ -68,14 +64,16 @@ int	pop(t_stack *stack, int *value)
 		return (-1);
 	else if (stack->len == 1)
 	{
-		*value = stack->top->value;
+		if (value)
+			*value = stack->top->value;
 		free(stack->top);
 		stack->top = NULL;
 	}
 	else
 	{
 		old_top = stack->top;
-		*value = old_top->value;
+		if (value)
+			*value = old_top->value;
 		old_top->prev->next = old_top->next;
 		old_top->next->prev = old_top->prev;
 		stack->top = old_top->next;

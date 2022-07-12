@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:04:12 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 12:20:46 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 12:23:59 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	parse_hex(long long *value, char *str)
 		str++;
 	str += 2;
 	if (!('0' <= *str && *str <= '9') && !('A' <= *str && *str <= 'F')
-			&& !('a' <= *str && *str <= 'f'))
+		&& !('a' <= *str && *str <= 'f'))
 		return (-1);
 	*value = 0;
 	while (*str)

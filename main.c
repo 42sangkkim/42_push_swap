@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:48:15 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 15:47:44 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 17:18:05 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	print_stack(t_stack stack)
 	}
 	free(array);
 }
-
+/*
 int	sort_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	print_stack(*stack_a);
@@ -70,4 +70,4 @@ int	sort_stack(t_stack *stack_a, t_stack *stack_b)
 		return (0);
 	else
 		return (-1);
-}
+}*/

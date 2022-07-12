@@ -6,14 +6,15 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/12 15:48:55 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/12 16:54:58 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:=push_swap
 
-SRCS:=main.c parse_input.c parse_int.c\
-	stack.c stack_util.c
+SRCS:=main.c parse_input.c parse_int.c \
+	stack.c stack_util.c push_swap.c \
+	bubble_sort.c
 
 INCS:=stack.h push_swap.h
 

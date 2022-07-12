@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 15:48:41 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 16:41:20 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_duplicate(t_stack *stack);
 
 void	to_space(unsigned int i, char *s)
 {
-	i = 0;
+	(void)i;
 	if (*s == '\t' || *s == '\n' || *s == '\v'
 		|| *s == '\f' || *s == '\r')
 		*s = ' ';

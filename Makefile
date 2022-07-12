@@ -6,13 +6,13 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/12 14:51:36 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/12 15:48:55 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:=push_swap
 
-SRCS:=main.c build_stack.c parse_int.c\
+SRCS:=main.c parse_input.c parse_int.c\
 	stack.c stack_util.c
 
 INCS:=stack.h push_swap.h

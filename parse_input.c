@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   build_stack.c                                      :+:      :+:    :+:   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 15:28:13 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 15:48:41 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stack.h"
 
 char	*parse_int(int *value, char *str);
-int		push_input(t_stack *stack, char *input);
+int		parse_string(t_stack *stack, char *input);
 int		check_duplicate(t_stack *stack);
 
 void	to_space(unsigned int i, char *s)
@@ -25,7 +25,7 @@ void	to_space(unsigned int i, char *s)
 		*s = ' ';
 }
 
-int	build_stack(t_stack *stack, int argc, char **argv)
+int	parse_input(t_stack *stack, int argc, char **argv)
 {
 	size_t	i;
 
@@ -33,15 +33,15 @@ int	build_stack(t_stack *stack, int argc, char **argv)
 	while (i < (size_t)argc)
 	{
 		ft_striteri(argv[i], &to_space);
-		if (push_input(stack, argv[i++]) <= 0)
+		if (parse_string(stack, argv[i++]) <= 0)
 			return (-1);
 	}
-	if (check_duplicate(stack) == 0)
+	if (check_duplicate(stack) < 0)
 		return (-1);
 	return (0);
 }
 
-int	push_input(t_stack *stack, char *input)
+int	parse_string(t_stack *stack, char *input)
 {
 	int	cnt;
 	int	value;

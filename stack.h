@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:47:29 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 15:17:39 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 15:36:33 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int		*to_array(t_stack *stack);
 int		swap(t_stack *stack);
 int		rotate(t_stack *stack);
 int		r_rotate(t_stack *stack);
+int		is_sorted(t_stack stack);
 
 #endif

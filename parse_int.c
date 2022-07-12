@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:04:12 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/09 22:57:04 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 12:20:46 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,129 +15,123 @@
 #include <string.h>
 #include "libft.h"
 
-int	parse_hex(int *p, char *str);
-int	parse_octal(int *p, char *str);
-int	parse_binary(int *p, char *str);
-int	parse_decimal(int *p, char *str);
+int	parse_hex(long long *value, char *str);
+int	parse_octal(long long *value, char *str);
+int	parse_binary(long long *value, char *str);
+int	parse_decimal(long long *value, char *str);
+
+//	0	: ok
+//	-1	: empty value (not zero)
+//	-2	: out of range
 
 int	parse_int(int *value, char *str)
 {
-	int	err_code;
+	long long	tmp_value;
+	int			err_code;
 
-	if (!*str)
-	{
-		write(1, "\033[0;33m[WARNING] empty string detected\n", 39);
-		return (-2);
-	}
 	if (!ft_strncmp(str, "0x", 2) || !ft_strncmp(str, "-0x", 3)
 		|| !ft_strncmp(str, "+0x", 3))
-		err_code = parse_hex(value, str);
+		err_code = parse_hex(&tmp_value, str);
 	else if (!ft_strncmp(str, "0b", 2) || !ft_strncmp(str, "-0b", 3)
 		|| !ft_strncmp(str, "+0b", 3))
-		err_code = parse_binary(value, str);
+		err_code = parse_binary(&tmp_value, str);
 	else if (!ft_strncmp(str, "0", 1) || !ft_strncmp(str, "-0", 2)
 		|| !ft_strncmp(str, "+0", 2))
-		err_code = parse_octal(value, str);
+		err_code = parse_octal(&tmp_value, str);
 	else
-		err_code = parse_decimal(value, str);
-	if (err_code == -2)
-		write(1, "\033[0;33m[WARNING] wrong character detected\n", 42);
-	else if (err_code == -3)
-		write(1, "\033[0;33m[WARNING] out of integer range\n", 38);
+		err_code = parse_decimal(&tmp_value, str);
+	if (tmp_value < INT_MIN)
+		*value = INT_MIN;
+	else if (tmp_value > INT_MAX)
+		*value = INT_MAX;
+	else
+		*value = (int)tmp_value;
 	return (err_code);
 }
 
-int	parse_hex(int *p, char *str)
+int	parse_hex(long long *value, char *str)
 {
 	long long	sign;
-	long long	value;
 
 	sign = 1 - 2 * (*str == '-');
 	if (*str == '+' || *str == '-')
 		str++;
 	str += 2;
-	value = 0;
+	if (!('0' <= *str && *str <= '9') && !('A' <= *str && *str <= 'F')
+			&& !('a' <= *str && *str <= 'f'))
+		return (-1);
+	*value = 0;
 	while (*str)
 	{
 		if ('0' <= *str && *str <= '9')
-			value = value * 16 + sign * (*str - '0');
+			*value = *value * 16 + sign * (*str - '0');
 		else if ('A' <= *str && *str <= 'F')
-			value = value * 16 + sign * (*str - 'A' + 10);
+			*value = *value * 16 + sign * (*str - 'A' + 10);
 		else if ('a' <= *str && *str <= 'f')
-			value = value * 16 + sign * (*str - 'a' + 10);
-		else
+			*value = *value * 16 + sign * (*str - 'a' + 10);
+		if (*value < INT_MIN || *value > INT_MAX)
 			return (-2);
-		if (value < INT_MIN || value > INT_MAX)
-			return (-3);
 		str++;
 	}
 	*p = (int)value;
 	return (0);
 }
 
-int	parse_octal(int *p, char *str)
+int	parse_octal(long long *value, char *str)
 {
 	long long	sign;
-	long long	value;
 
 	sign = 1 - 2 * (*str == '-');
 	if (*str == '+' || *str == '-')
 		str++;
-	value = 0;
+	*value = 0;
 	while ('0' <= *str && *str <= '7')
 	{
-		value = value * 8 + sign * (*str - '0');
-		if (value < INT_MIN || value > INT_MAX)
-			return (-3);
+		*value = *value * 8 + sign * (*str - '0');
+		if (*value < INT_MIN || *value > INT_MAX)
+			return (-2);
 		str++;
 	}
-	if (*str)
-		return (-2);
-	*p = (int)value;
 	return (0);
 }
 
-int	parse_binary(int *p, char *str)
+int	parse_binary(long long *value, char *str)
 {
 	long long	sign;
-	long long	value;
 
 	sign = 1 - 2 * (*str == '-');
 	if (*str == '+' || *str == '-')
 		str++;
 	str += 2;
-	value = 0;
+	if (*str < '0' || '1' < *str)
+		return (-1);
+	*value = 0;
 	while ('0' <= *str && *str <= '1')
 	{
-		value = value * 2 + sign * (*str - '0');
-		if (value < INT_MIN || value > INT_MAX)
-			return (-3);
+		*value = *value * 2 + sign * (*str - '0');
+		if (*value < INT_MIN || *value > INT_MAX)
+			return (-2);
 		str++;
 	}
-	if (*str)
-		return (-2);
-	*p = (int)value;
 	return (0);
 }
 
-int	parse_decimal(int *p, char *str)
+int	parse_decimal(long long *value, char *str)
 {
 	long long	sign;
-	long long	value;
 
 	sign = 1 - 2 * (*str == '-');
 	if (*str == '+' || *str == '-')
 		str++;
-	value = 0;
+	if (*str < '0' || '9' <= *str)
+		return (-1);
+	*value = 0;
 	while ('0' <= *str && *str <= '9')
 	{
-		value = value * 10 + sign * (*str - '0');
-		if (value < INT_MIN || value > INT_MAX)
-			return (-3);
+		*value = *value * 10 + sign * (*str - '0');
+		if (*value < INT_MIN || *value > INT_MAX)
+			return (-2);
 		str++;
 	}
-	if (*str)
-		return (-2);
-	*p = (int)value;
 	return (0);
 }

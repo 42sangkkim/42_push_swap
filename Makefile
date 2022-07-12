@@ -6,14 +6,14 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/09 23:01:03 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/12 13:30:27 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:=push_swap
 
-SRCS:=main.c init_stack.c parse_int.c\
-	stack.c stack_swap.c stack_push.c stack_rotate.c stack_reverse_rotate.c
+SRCS:=main.c build_stack.c parse_int.c\
+	stack.c stack_util.c
 
 INCS:=stack.h push_swap.h
 

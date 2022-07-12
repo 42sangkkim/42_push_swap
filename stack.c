@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:50:14 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 01:33:05 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 13:50:12 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int	push(t_stack *stack, int value)
 	if (!node)
 		return (-1);
 	node->value = value;
-	if (stack.len > 0)
+	if (stack->len > 0)
 	{
 		node->prev = stack->top->prev;
+		node->next = stack->top;
 		stack->top->prev->next = node;
-		node->next - stack.top;
 		stack->top->prev = node;
 	}
 	else
@@ -55,6 +55,7 @@ int	push(t_stack *stack, int value)
 		node->next = node;
 		node->prev = node;
 	}
+	stack->len++;
 	stack->top = node;
 	return (0);
 }
@@ -63,23 +64,24 @@ int	pop(t_stack *stack, int *value)
 {
 	t_node	*old_top;
 
-	if (node.len == 0)
+	if (stack->len == 0)
 		return (-1);
-	else if (node.len == 1)
+	else if (stack->len == 1)
 	{
-		value = stack->top->value;
+		*value = stack->top->value;
 		free(stack->top);
 		stack->top = NULL;
 	}
 	else
 	{
 		old_top = stack->top;
-		value = old_top->value;
+		*value = old_top->value;
 		old_top->prev->next = old_top->next;
 		old_top->next->prev = old_top->prev;
 		stack->top = old_top->next;
 		free(old_top);
 	}
+	stack->len--;
 	return (0);
 }
 
@@ -96,7 +98,7 @@ int	*to_array(t_stack *stack)
 	node = stack->top;
 	while (i < stack->len)
 	{
-		array[i] = node->value;
+		array[i++] = node->value;
 		node = node->next;
 	}
 	return (array);

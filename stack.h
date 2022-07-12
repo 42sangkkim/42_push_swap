@@ -6,12 +6,14 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:47:29 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 01:33:08 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 13:35:30 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
+
+# include <stdlib.h>
 
 typedef struct s_node
 {

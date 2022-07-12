@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 14:58:05 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/12 15:28:13 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 char	*parse_int(int *value, char *str);
 int		push_input(t_stack *stack, char *input);
+int		check_duplicate(t_stack *stack);
 
 void	to_space(unsigned int i, char *s)
 {
@@ -31,9 +32,12 @@ int	build_stack(t_stack *stack, int argc, char **argv)
 	i = 1;
 	while (i < (size_t)argc)
 	{
+		ft_striteri(argv[i], &to_space);
 		if (push_input(stack, argv[i++]) <= 0)
 			return (-1);
 	}
+	if (check_duplicate(stack) == 0)
+		return (-1);
 	return (0);
 }
 
@@ -43,7 +47,6 @@ int	push_input(t_stack *stack, char *input)
 	int	value;
 
 	cnt = 0;
-	ft_striteri(input, &to_space);
 	while (*input)
 	{
 		if (*input == ' ')
@@ -52,7 +55,9 @@ int	push_input(t_stack *stack, char *input)
 		{
 			cnt++;
 			input = parse_int(&value, input);
-			if (input == NULL || push(stack, value) < 0)
+			if (input == NULL)
+				return (-1);
+			if (push(stack, value) < 0)
 				return (-1);
 			rotate(stack);
 		}
@@ -60,4 +65,28 @@ int	push_input(t_stack *stack, char *input)
 			return (-1);
 	}
 	return (cnt);
+}
+
+int	check_duplicate(t_stack *stack)
+{
+	size_t	i;
+	size_t	j;
+	int		*array;
+
+	array = to_array(stack);
+	if (!array)
+		return (-1);
+	i = 0;
+	while (i < stack->len)
+	{
+		j = i + 1;
+		while (j < stack->len)
+		{
+			if (array[i] == array[j])
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

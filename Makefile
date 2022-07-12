@@ -6,7 +6,7 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/12 13:30:27 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/12 14:51:36 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ all : $(NAME)
 clean :
 	make -C $(LIBFT_DIR) fclean
 
-fclean :
+fclean : clean
 	rm -f $(NAME)
 
 re : fclean all

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:50:14 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 17:13:17 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/13 10:48:35 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	destroy_stack(t_stack *stack)
 		pop(stack, NULL);
 }
 
-int	push(t_stack *stack, int value)
+int	push_stack(t_stack *stack, int value)
 {
 	t_node	*node;
 
@@ -56,7 +56,7 @@ int	push(t_stack *stack, int value)
 	return (0);
 }
 
-int	pop(t_stack *stack, int *value)
+int	pop_stack(t_stack *stack, int *value)
 {
 	t_node	*old_top;
 

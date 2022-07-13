@@ -6,18 +6,15 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:48:15 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 17:18:05 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/13 21:31:17 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <unistd.h>
-#include "libft.h"
 #include "stack.h"
 
 int		parse_input(t_stack *stack, int argc, char **argv);
 int		sort_stack(t_stack *stack_a, t_stack *stack_b);
-void	print_stack(t_stack stack);
 
 int	main(int argc, char **argv)
 {
@@ -33,6 +30,7 @@ int	main(int argc, char **argv)
 		destroy_stack(&stack_b);
 		return (-1);
 	}
+	print_stack(&stack_a);
 	if (sort_stack(&stack_a, &stack_b) < 0)
 	{
 		write(2, "Error\n", 6);
@@ -40,34 +38,8 @@ int	main(int argc, char **argv)
 		destroy_stack(&stack_b);
 		return (-1);
 	}
+//	print_stack(&stack_a);
 	destroy_stack(&stack_a);
 	destroy_stack(&stack_b);
 	return (0);
 }
-
-void	print_stack(t_stack stack)
-{
-	int		*array;
-	size_t	i;
-
-	array = to_array(&stack);
-	if (!array)
-		return ;
-	i = 0;
-	while (i < stack.len)
-	{
-		ft_putnbr_fd(array[i++], 1);
-		ft_putchar_fd('\n', 1);
-	}
-	free(array);
-}
-/*
-int	sort_stack(t_stack *stack_a, t_stack *stack_b)
-{
-	print_stack(*stack_a);
-	print_stack(*stack_b);
-	if (is_sorted(*stack_a))
-		return (0);
-	else
-		return (-1);
-}*/

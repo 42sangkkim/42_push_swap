@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:04:12 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 13:23:21 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:43:02 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ char	*parse_hex(long long *value, char *str);
 char	*parse_octal(long long *value, char *str);
 char	*parse_binary(long long *value, char *str);
 char	*parse_decimal(long long *value, char *str);
-
-//	0	: ok
-//	-1	: empty value (not zero)
-//	-2	: out of range
 
 char	*parse_int(int *value, char *str)
 {
@@ -124,7 +120,7 @@ char	*parse_decimal(long long *value, char *str)
 	sign = 1 - 2 * (*str == '-');
 	if (*str == '+' || *str == '-')
 		str++;
-	if (*str < '0' || '9' <= *str)
+	if (*str < '0' || '9' < *str)
 		return (NULL);
 	*value = 0;
 	while ('0' <= *str && *str <= '9')

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/12 16:41:20 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/13 21:30:57 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	parse_string(t_stack *stack, char *input)
 	{
 		if (*input == ' ')
 			input++;
-		else if ('0' <= *input && *input <= '9')
+		else if (('0' <= *input && *input <= '9')
+				|| *input == '+' || *input == '-')
 		{
 			cnt++;
 			input = parse_int(&value, input);

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:47:29 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/13 10:48:55 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/13 15:51:29 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ typedef struct s_stack
 // stack.c
 t_stack	new_stack(void);
 void	destroy_stack(t_stack *stack);
-int		push_stack(t_stack *stack, int value);
-int		pop_stack(t_stack *stack, int *value);
+int		push(t_stack *stack, int value);
+int		pop(t_stack *stack, int *value);
 int		*to_array(t_stack *stack);
 
 // stack_util.c
-int		swap(t_stack *stack);
-int		rotate(t_stack *stack);
-int		r_rotate(t_stack *stack);
-int		is_sorted(t_stack stack);
+void	rotate(t_stack *stack);
+int		is_sorted(t_stack *stack, size_t len);
+int		is_rev_sorted(t_stack *stack, size_t len);
+void	print_stack(t_stack *stack);
 
 #endif

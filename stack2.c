@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:25:10 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/14 13:47:01 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:54:55 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	pop_node(t_stack *stack, t_node **node_p)
 		stack->top->prev = NULL;
 		stack->top = NULL;
 		stack->len--;
-		retrun(0);
+		return (0);
 	}
 	else
 	{
@@ -34,11 +34,11 @@ int	pop_node(t_stack *stack, t_node **node_p)
 		stack->top->prev->next = stack->top->next;
 		stack->top = stack->top->next;
 		stack->len--;
-		retrun (1);
+		return (1);
 	}
 }
 
-int	push_stack(t_stack *stack, t_node *node)
+int	push_node(t_stack *stack, t_node *node)
 {
 	if (stack->len == 0)
 	{

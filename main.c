@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:48:15 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/13 21:31:17 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:15:29 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 		destroy_stack(&stack_b);
 		return (-1);
 	}
-	print_stack(&stack_a);
 	if (sort_stack(&stack_a, &stack_b) < 0)
 	{
 		write(2, "Error\n", 6);
@@ -38,7 +37,6 @@ int	main(int argc, char **argv)
 		destroy_stack(&stack_b);
 		return (-1);
 	}
-//	print_stack(&stack_a);
 	destroy_stack(&stack_a);
 	destroy_stack(&stack_b);
 	return (0);

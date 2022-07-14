@@ -6,14 +6,14 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/13 21:26:02 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/14 13:46:16 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:=push_swap
 
 SRCS:=main.c parse_input.c parse_int.c \
-	stack.c stack_util.c \
+	stack.c stack2.c stack_util.c \
 	operate.c op_swap.c op_push.c op_rotate.c op_r_rotate.c \
 	quick_sort.c
 

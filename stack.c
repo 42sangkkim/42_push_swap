@@ -6,11 +6,11 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 00:50:14 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/13 15:37:56 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/14 13:43:05 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 #include "stack.h"
 
 t_stack	new_stack(void)
@@ -28,59 +28,7 @@ void	destroy_stack(t_stack *stack)
 
 	node = stack->top;
 	while (stack->len)
-		pop(stack, NULL);
-}
-
-int	push(t_stack *stack, int value)
-{
-	t_node	*node;
-
-	node = malloc(sizeof(t_node));
-	if (!node)
-		return (-1);
-	node->value = value;
-	if (stack->len > 0)
-	{
-		node->prev = stack->top->prev;
-		node->next = stack->top;
-		stack->top->prev->next = node;
-		stack->top->prev = node;
-	}
-	else
-	{
-		node->next = node;
-		node->prev = node;
-	}
-	stack->len++;
-	stack->top = node;
-	return (0);
-}
-
-int	pop(t_stack *stack, int *value)
-{
-	t_node	*old_top;
-
-	if (stack->len == 0)
-		return (-1);
-	else if (stack->len == 1)
-	{
-		if (value)
-			*value = stack->top->value;
-		free(stack->top);
-		stack->top = NULL;
-	}
-	else
-	{
-		old_top = stack->top;
-		if (value)
-			*value = old_top->value;
-		old_top->prev->next = old_top->next;
-		old_top->next->prev = old_top->prev;
-		stack->top = old_top->next;
-		free(old_top);
-	}
-	stack->len--;
-	return (0);
+		pop_node(stack, NULL);
 }
 
 int	*to_array(t_stack *stack)
@@ -100,4 +48,29 @@ int	*to_array(t_stack *stack)
 		node = node->next;
 	}
 	return (array);
+}
+
+void	rotate(t_stack *stack)
+{
+	if (stack->len < 2)
+		return ;
+	else
+		stack->top = stack->top->next;
+}
+
+void	print_stack(t_stack *stack)
+{
+	int		*array;
+	size_t	i;
+
+	array = to_array(stack);
+	if (!array)
+		return ;
+	i = 0;
+	while (i < stack->len)
+	{
+		ft_putnbr_fd(array[i++], 1);
+		ft_putchar_fd('\n', 1);
+	}
+	free(array);
 }

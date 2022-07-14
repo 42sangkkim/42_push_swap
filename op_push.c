@@ -6,15 +6,12 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:41:19 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/13 21:52:25 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/14 13:47:28 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "stack.h"
-
-t_node	*pop_node(t_stack *stack);
-void	push_node(t_stack *stack, t_node *node);
 
 void	op_pa(t_stack *a, t_stack *b, size_t n)
 {

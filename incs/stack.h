@@ -32,9 +32,10 @@ int		push_node(t_stack *stack, t_node *node);
 int		pop_node(t_stack *stack, t_node **node_ptr);
 int		push_value(t_stack *stack, int value);
 int		pop_value(t_stack *stack, int *value_ptr);
-
 int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
+
+int		swap(t_stack *stack);
 int		is_sorted(t_stack *stack);
 int		is_rev_sorted(t_stack *stack);
 int		to_array(t_stack *stack, int **array_ptr);

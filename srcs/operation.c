@@ -6,23 +6,23 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 11:34:21 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/17 11:37:39 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:09:58 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operation.h"
 
-void	op_sa(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_sb(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_ss(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_pa(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_pb(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_ra(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_rb(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_rr(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_rra(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_rrb(t_stack *a, t_stack *b, t_op op, size_t n);
-void	op_rrr(t_stack *a, t_stack *b, t_op op, size_t n);
+void	op_sa(t_stack *a, t_stack *b, size_t n);
+void	op_sb(t_stack *a, t_stack *b, size_t n);
+void	op_ss(t_stack *a, t_stack *b, size_t n);
+void	op_pa(t_stack *a, t_stack *b, size_t n);
+void	op_pb(t_stack *a, t_stack *b, size_t n);
+void	op_ra(t_stack *a, t_stack *b, size_t n);
+void	op_rb(t_stack *a, t_stack *b, size_t n);
+void	op_rr(t_stack *a, t_stack *b, size_t n);
+void	op_rra(t_stack *a, t_stack *b, size_t n);
+void	op_rrb(t_stack *a, t_stack *b, size_t n);
+void	op_rrr(t_stack *a, t_stack *b, size_t n);
 
 void	operation(t_stack *a, t_stack *b, t_op op, size_t n)
 {

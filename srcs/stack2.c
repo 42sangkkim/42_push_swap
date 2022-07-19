@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:54:25 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/15 23:08:28 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:14:28 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	push_value(t_stack *stack, int value)
 {
 	t_node	*node;
 
-	node = malloc(t_node);
+	node = malloc(sizeof(t_node));
 	if (!node)
 		return (-1);
 	node->value = value;
@@ -77,7 +77,7 @@ int	pop_value(t_stack *stack, int *value_ptr)
 
 	if (pop_node(stack, &node) < 0)
 		return (-1);
-	*value_ptr = node->vlaue;
+	*value_ptr = node->value;
 	free(node);
 	return (0);
 }

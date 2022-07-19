@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/14 16:02:50 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:14:54 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ int	check_duplicate(t_stack *stack)
 	size_t	j;
 	int		*array;
 
-	array = to_array(stack);
-	if (!array)
+	if (to_array(stack, &array) < 0)
 		return (-1);
 	i = 0;
 	while (i < stack->len)

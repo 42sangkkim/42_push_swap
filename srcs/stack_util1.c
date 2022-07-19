@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:08:37 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/15 23:14:42 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:14:40 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	swap(t_stack *stack)
 	tmp = stack->top->value;
 	stack->top->value = stack->top->next->value;
 	stack->top->next->value = tmp;
+	return (1);
 }
 
 int	is_sorted(t_stack *stack, size_t n)

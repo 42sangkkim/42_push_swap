@@ -6,15 +6,15 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 11:30:50 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/17 11:37:36 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:11:15 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATION_H
 # define OPERATION_H
 
-# include <stdlib.h>
-# include "../stack/stack.h"
+# include <unistd.h>
+# include "stack.h"
 
 typedef enum e_op
 {

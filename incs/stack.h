@@ -6,12 +6,14 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 22:47:08 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/15 22:51:41 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:12:16 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
+
+# include <stdlib.h>
 
 typedef struct s_node
 {
@@ -36,8 +38,8 @@ int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
 
 int		swap(t_stack *stack);
-int		is_sorted(t_stack *stack);
-int		is_rev_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack, size_t n);
+int		is_rev_sorted(t_stack *stack, size_t n);
 int		to_array(t_stack *stack, int **array_ptr);
 int		print_stack(t_stack *stack);
 

@@ -10,33 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "operation.h"
 
-void	op_rra(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_rra(t_stack *a, t_stack *b, size_t n)
 {
 	(void)b;
 	while (n--)
 	{
 		if (reverse_rotate(a))
-			write(1, "rra\n", 3);
+			write(1, "rra\n", 4);
 	}
 }
 
-void	op_rrb(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_rrb(t_stack *a, t_stack *b, size_t n)
 {
 	(void)a;
 	while (n--)
 	{
 		if (reverse_rotate(b))
-			write(1, "rrb\n", 3);
+			write(1, "rrb\n", 4);
 	}
 }
 
-void	op_rrr(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_rrr(t_stack *a, t_stack *b, size_t n)
 {
 	while (n--)
 	{
 		if (reverse_rotate(a) + reverse_rotate(b))
-			write(1, "rrr\n", 3);
+			write(1, "rrr\n", 4);
 	}
 }

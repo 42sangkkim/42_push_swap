@@ -14,7 +14,7 @@
 # define OPERATION_H
 
 # include <stdlib.h>
-# include "../stack/stack.h"
+# include "stack.h"
 
 typedef enum e_op
 {

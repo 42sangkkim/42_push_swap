@@ -1,0 +1,392 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+
+# Make data base, printed on Wed Jul 20 17:10:46 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/sangkkim/42Seoul/42cursus/push_swap
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"26f3b44ea4f1e942cca002e9545643cc.ko","_translationsConfigFile":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/tcf.json","_cacheRoot":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko","_resolvedLanguagePackCoreLocation":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 28)
+CFLAGS := -Wall -Wextra -Werror
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# makefile (from `Makefile', line 22)
+INCS := stack.h operation.h
+# environment
+VSCODE_CWD = /
+# environment
+PATH = /opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin://Users/sangkkim/Library/Python/3.8/bin
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# makefile (from `Makefile', line 25)
+LIBFT_DIR := libft
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.W5jQTHS7bu/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+PWD = /Users/sangkkim/42Seoul/42cursus/push_swap
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from `Makefile', line 21)
+INC_DIR := incs
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/sangkkim
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/sangkkim/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+# environment
+LOGNAME = sangkkim
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from `Makefile', line 16)
+SRCS := main.c parse_input.c parse_int.c stack1.c stack2.c stack_util1.c stack_util2.c operation.c operation2.c operation3.c merge_sort.c
+# environment
+SHLVL = 1
+# makefile (from `Makefile', line 24)
+LIBFT := ft
+# makefile (from `Makefile', line 27)
+CC := cc
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = sangkkim
+# makefile
+.DEFAULT_GOAL := push_swap
+# makefile (from `Makefile', line 13)
+NAME := push_swap
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/xd/y21wv_9d2p92161kvwy2mkh80000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/sangkkim/Library/Application Support/Code/1.69.2-main.sock
+# environment
+MallocNanoZone = 0
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MAIL = sangkkim@student.42seoul.kr
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.15857103.15857109
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# makefile (from `Makefile', line 15)
+SRC_DIR := srcs
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+VSCODE_PID = 70692
+# variable set hash-table stats:
+# Load=68/1024=7%, Rehash=0, Collisions=1/109=1%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777232, inode 8746175): 12 files, no impossibilities.
+
+# 12 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+all: push_swap
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/11=0%
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/stack2.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:08:24
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/operation3.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:13:33
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:00:11
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:14:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/operation.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:02:39
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+incs/stack.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:05:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 43):
+	rm -f $(NAME)
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/parse_input.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:07:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 40):
+	make -C $(LIBFT_DIR) fclean
+	
+
+push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  Last modified 2022-07-17 14:14:47
+ 
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := push_swap
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
+# automatic
+# | := 
+# automatic
+# < := srcs/main.c
+# automatic
+# ^ := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
+# automatic
+# ? := srcs/merge_sort.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=4/20=20%
+#  commands to execute (from `Makefile', line 31):
+	@make -sC $(LIBFT_DIR) all
+	$(CC) $(CFLAGS) -o $@ $(addprefix $(SRC_DIR)/, $(SRCS)) -I $(INC_DIR) \
+	-I $(LIBFT_DIR) -L $(LIBFT_DIR) -l$(LIBFT)
+	
+
+# Not a target:
+srcs/stack_util1.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:08:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/operation2.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:03:08
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/merge_sort.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-20 10:33:58
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/parse_int.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-14 13:23:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/stack1.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 12:09:24
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+srcs/stack_util2.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 14:14:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+incs/operation.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-17 12:47:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=22/1024=2%, Rehash=0, Collisions=0/57=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Wed Jul 20 17:10:46 2022
+
+ 

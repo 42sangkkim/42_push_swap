@@ -13,6 +13,8 @@
 #ifndef STACK_H
 # define STACK_H
 
+# include <stdlib.h>
+
 typedef struct s_node
 {
 	int				value;
@@ -36,8 +38,8 @@ int		rotate(t_stack *stack);
 int		reverse_rotate(t_stack *stack);
 
 int		swap(t_stack *stack);
-int		is_sorted(t_stack *stack);
-int		is_rev_sorted(t_stack *stack);
+int		is_sorted(t_stack *stack, size_t n);
+int		is_rev_sorted(t_stack *stack, size_t n);
 int		to_array(t_stack *stack, int **array_ptr);
 int		print_stack(t_stack *stack);
 

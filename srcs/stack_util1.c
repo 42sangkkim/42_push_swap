@@ -21,6 +21,7 @@ int	swap(t_stack *stack)
 	tmp = stack->top->value;
 	stack->top->value = stack->top->next->value;
 	stack->top->next->value = tmp;
+	return (1);
 }
 
 int	is_sorted(t_stack *stack, size_t n)

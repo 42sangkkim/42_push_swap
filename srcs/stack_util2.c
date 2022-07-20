@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "stack.h"
 
 int	to_array(t_stack *stack, int **array_ptr)
@@ -70,6 +71,7 @@ int	print_stack(t_stack *stack)
 	while (i < stack->len)
 	{
 		put_nbr(node->value);
+		write(1, "\n", 1);
 		node = node->next;
 		i++;
 	}

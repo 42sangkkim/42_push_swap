@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "operation.h"
 
-void	op_pa(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_pa(t_stack *a, t_stack *b, size_t n)
 {
 	t_node	*node;
 
@@ -23,7 +24,7 @@ void	op_pa(t_stack *a, t_stack *b, t_op op, size_t n)
 	}
 }
 
-void	op_pb(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_pb(t_stack *a, t_stack *b, size_t n)
 {
 	t_node	*node;
 
@@ -34,7 +35,7 @@ void	op_pb(t_stack *a, t_stack *b, t_op op, size_t n)
 	}
 }
 
-void	op_ra(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_ra(t_stack *a, t_stack *b, size_t n)
 {
 	(void)b;
 	while (n--)
@@ -44,7 +45,7 @@ void	op_ra(t_stack *a, t_stack *b, t_op op, size_t n)
 	}
 }
 
-void	op_rb(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_rb(t_stack *a, t_stack *b, size_t n)
 {
 	(void)a;
 	while (n--)
@@ -54,7 +55,7 @@ void	op_rb(t_stack *a, t_stack *b, t_op op, size_t n)
 	}
 }
 
-void	op_rr(t_stack *a, t_stack *b, t_op op, size_t n)
+void	op_rr(t_stack *a, t_stack *b, size_t n)
 {
 	while (n--)
 	{

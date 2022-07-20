@@ -21,8 +21,8 @@ int	main(int argc, char **argv)
 	t_stack	stack_a;
 	t_stack	stack_b;
 
-	stack_a = new_stack();
-	stack_b = new_stack();
+	init_stack(&stack_a);
+	init_stack(&stack_b);
 	if (parse_input(&stack_a, argc, argv) < 0)
 	{
 		write(2, "Error\n", 6);
@@ -30,13 +30,8 @@ int	main(int argc, char **argv)
 		destroy_stack(&stack_b);
 		return (-1);
 	}
-	if (sort_stack(&stack_a, &stack_b) < 0)
-	{
-		write(2, "Error\n", 6);
-		destroy_stack(&stack_a);
-		destroy_stack(&stack_b);
-		return (-1);
-	}
+	sort_stack(&stack_a, &stack_b);
+	print_stack(&stack_a);
 	destroy_stack(&stack_a);
 	destroy_stack(&stack_b);
 	return (0);

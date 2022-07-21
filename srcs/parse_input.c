@@ -6,18 +6,20 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/19 16:14:54 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/21 22:08:45 by sangkkim         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stack.h"
+#include "push_swap.h"
+#include "utils.h"
 
+int		push_value(t_stack *stack, int value);
 char	*parse_int(int *value, char *str);
 int		parse_string(t_stack *stack, char *input);
 int		check_duplicate(t_stack *stack);
 
-void	to_space(unsigned int i, char *s)
+static void	to_space(unsigned int i, char *s)
 {
 	(void)i;
 	if (*s == '\t' || *s == '\n' || *s == '\v'
@@ -60,7 +62,7 @@ int	parse_string(t_stack *stack, char *input)
 				return (-1);
 			if (push_value(stack, value) < 0)
 				return (-1);
-			rotate(stack);
+			stack->top = stack->top->next;
 		}
 		else
 			return (-1);

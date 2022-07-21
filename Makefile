@@ -6,20 +6,18 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/21 12:00:54 by sangkkim         ###   ########seoul.kr   #
+#    Updated: 2022/07/21 22:01:19 by sangkkim         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:=push_swap
 
 SRC_DIR:=srcs
-SRCS:=main.c parse_input.c parse_int.c \
-	stack1.c stack2.c stack_util1.c stack_util2.c \
-	operation.c operation2.c operation3.c \
-	merge_sort.c
+SRCS:=main.c parse_input.c parse_int.c utils1.c \
+	stack.c op_swap.c op_push.c op_rotate.c op_r_rotate.c
 
 INC_DIR:=incs
-INCS:=stack.h operation.h
+INCS:=push_swap.h
 
 LIBFT:=ft
 LIBFT_DIR:=libft

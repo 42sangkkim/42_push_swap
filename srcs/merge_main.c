@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_sort.c                                       :+:      :+:    :+:   */
+/*   merge_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/19 14:15:15 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/19 16:30:12 by sangkkim         ###   ########.fr       */
+/*   Created: 2022/07/21 22:14:31 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/07/21 22:15:11 by sangkkim         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-#include "operation.h"
+#include "push_swap.h"
 
-ssize_t	split_cnt(size_t n);
-void	atop_merge(t_stack *a, t_stack *b, size_t len);
-
-void	sort_stack(t_stack *a, t_stack *b)
+void	sort_stack(t_push_swap *push_swap)
 {
-	ssize_t	pb_cnt;
-
-	pb_cnt = split_cnt(a->len);
-	write(1, "\n", 1);
-	ft_putnbr_fd((int)pb_cnt, 1);
-	write(1, "\n", 1);
-	write(1, "\n", 1);
-	operation(a, b, pb, (size_t)pb_cnt);
-	atop_merge(a, b, a->len);
+	
 }

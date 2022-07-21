@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.h                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 11:30:50 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/21 11:59:07 by sangkkim         ###   ########seoul.kr  */
+/*   Created: 2022/07/21 21:26:34 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/07/21 22:09:00 by sangkkim         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATION_H
-# define OPERATION_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include <stdlib.h>
-# include "stack.h"
-
-typedef enum e_op
-{
-	sa = 0,
-	sb,
-	ss,
-	pa,
-	pb,
-	ra,
-	rb,
-	rr,
-	rra,
-	rrb,
-	rrr
-}	t_op;
-
-void	operation(t_stack *a, t_stack *b, t_op op, size_t n);
+void	print_stack(t_stack *stack);
+int		ft_pow(int a, int b);
+int		to_array(t_stack *stack, int **arr_ptr);
 
 #endif

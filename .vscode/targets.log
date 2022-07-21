@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Jul 21 12:01:10 2022
+# Make data base, printed on Thu Jul 21 22:01:27 2022
 
 # Variables
 
@@ -24,21 +24,21 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 @F = $(notdir $@)
 # makefile
 CURDIR := /Users/sangkkim/42Seoul/42cursus/push_swap
- 
 # makefile
+ 
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"26f3b44ea4f1e942cca002e9545643cc.ko","_translationsConfigFile":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/tcf.json","_cacheRoot":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko","_resolvedLanguagePackCoreLocation":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/Users/sangkkim/Library/Application Support/Code/clp/26f3b44ea4f1e942cca002e9545643cc.ko/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `Makefile', line 28)
+# makefile (from `Makefile', line 26)
 CFLAGS := -Wall -Wextra -Werror
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
-# makefile (from `Makefile', line 22)
-INCS := stack.h operation.h
+# makefile (from `Makefile', line 20)
+INCS := push_swap.h
 # environment
 VSCODE_CWD = /
 # environment
@@ -47,7 +47,7 @@ PATH = /opt/homebrew/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
-# makefile (from `Makefile', line 25)
+# makefile (from `Makefile', line 23)
 LIBFT_DIR := libft
 # environment
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.W5jQTHS7bu/Listeners
@@ -57,7 +57,7 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.W5jQTHS7bu/Listeners
 PWD = /Users/sangkkim/42Seoul/42cursus/push_swap
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# makefile (from `Makefile', line 21)
+# makefile (from `Makefile', line 19)
 INC_DIR := incs
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
@@ -82,12 +82,12 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from `Makefile', line 16)
-SRCS := main.c parse_input.c parse_int.c stack1.c stack2.c stack_util1.c stack_util2.c operation.c operation2.c operation3.c merge_sort.c
+SRCS := main.c parse_input.c parse_int.c utils1.c stack.c op_swap.c op_push.c op_rotate.c op_r_rotate.c
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 24)
+# makefile (from `Makefile', line 22)
 LIBFT := ft
-# makefile (from `Makefile', line 27)
+# makefile (from `Makefile', line 25)
 CC := cc
 # default
 MAKE_VERSION := 3.81
@@ -158,9 +158,9 @@ VSCODE_PID = 70692
 
 # Directories
 
-# . (device 16777232, inode 8746175): 12 files, no impossibilities.
+# . (device 16777232, inode 8746175): 15 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -172,11 +172,21 @@ all: push_swap
 #  Phony target (prerequisite of .PHONY).
 #  Command-line target.
 #  Implicit rule search has not been done.
+ 
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/11=0%
+
+# Not a target:
+srcs/op_swap.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-21 21:44:56
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -184,18 +194,9 @@ all: push_swap
 #  File has not been updated.
 
 # Not a target:
-srcs/stack2.c:
+srcs/op_rotate.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/operation3.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
+#  Last modified 2022-07-21 21:45:25
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -208,9 +209,18 @@ srcs/operation3.c:
 #  File has not been updated.
 
 # Not a target:
+srcs/stack.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-21 21:58:49
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-21 12:00:54
+#  Last modified 2022-07-21 22:01:19
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -219,25 +229,7 @@ Makefile:
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-21 11:59:40
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/operation.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-incs/stack.h:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
+#  Last modified 2022-07-21 21:43:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -248,9 +240,18 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 43):
+#  commands to execute (from `Makefile', line 41):
 	rm -f $(NAME)
 	
+
+# Not a target:
+srcs/op_r_rotate.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-21 21:45:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -261,7 +262,7 @@ fclean: clean
 # Not a target:
 srcs/parse_input.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
+#  Last modified 2022-07-21 21:58:32
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -278,14 +279,14 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 40):
+#  commands to execute (from `Makefile', line 38):
 	make -C $(LIBFT_DIR) fclean
 	
 
-push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
+push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/utils1.c srcs/stack.c srcs/op_swap.c srcs/op_push.c srcs/op_rotate.c srcs/op_r_rotate.c incs/push_swap.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `'
-#  Last modified 2022-07-20 23:23:28
+#  Last modified 2022-07-21 18:55:53
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -295,46 +296,27 @@ push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/st
 # automatic
 # * := 
 # automatic
-# + := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
+# + := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/utils1.c srcs/stack.c srcs/op_swap.c srcs/op_push.c srcs/op_rotate.c srcs/op_r_rotate.c incs/push_swap.h
 # automatic
 # | := 
 # automatic
 # < := srcs/main.c
 # automatic
- 
-# ^ := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
+# ^ := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/utils1.c srcs/stack.c srcs/op_swap.c srcs/op_push.c srcs/op_rotate.c srcs/op_r_rotate.c incs/push_swap.h
 # automatic
-# ? := srcs/main.c srcs/merge_sort.c incs/operation.h
+# ? := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/utils1.c srcs/stack.c srcs/op_swap.c srcs/op_push.c srcs/op_rotate.c srcs/op_r_rotate.c incs/push_swap.h
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=4/20=20%
-#  commands to execute (from `Makefile', line 31):
+#  commands to execute (from `Makefile', line 29):
 	@make -sC $(LIBFT_DIR) all
 	$(CC) $(CFLAGS) -o $@ $(addprefix $(SRC_DIR)/, $(SRCS)) -I $(INC_DIR) \
 	-I $(LIBFT_DIR) -L $(LIBFT_DIR) -l$(LIBFT)
 	
 
 # Not a target:
-srcs/stack_util1.c:
+incs/push_swap.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/operation2.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-srcs/merge_sort.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-21 12:00:42
+#  Last modified 2022-07-21 21:43:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -343,41 +325,32 @@ srcs/merge_sort.c:
 # Not a target:
 srcs/parse_int.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-14 13:23:49
+#  Last modified 2022-07-21 21:41:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-srcs/stack1.c:
+srcs/utils1.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
+#  Last modified 2022-07-21 21:34:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-srcs/stack_util2.c:
+srcs/op_push.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-20 23:23:28
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-incs/operation.h:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-21 11:59:07
+#  Last modified 2022-07-21 21:59:36
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=0/57=0%
+# Load=19/1024=2%, Rehash=0, Collisions=4/51=8%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -389,6 +362,6 @@ incs/operation.h:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Jul 21 12:01:10 2022
+# Finished Make data base on Thu Jul 21 22:01:27 2022
 
  

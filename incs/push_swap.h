@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 22:47:08 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/19 16:12:16 by sangkkim         ###   ########.fr       */
+/*   Created: 2022/07/21 20:12:44 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/07/21 22:01:55 by sangkkim         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
+# include <unistd.h>
 # include <stdlib.h>
+# include "libft.h"
 
 typedef struct s_node
 {
@@ -28,19 +30,22 @@ typedef struct s_stack
 	t_node	*top;
 }	t_stack;
 
-int		init_stack(t_stack *stack);
-int		destroy_stack(t_stack *stack);
-int		push_node(t_stack *stack, t_node *node);
-int		pop_node(t_stack *stack, t_node **node_ptr);
-int		push_value(t_stack *stack, int value);
-int		pop_value(t_stack *stack, int *value_ptr);
-int		rotate(t_stack *stack);
-int		reverse_rotate(t_stack *stack);
+typedef struct s_push_swap
+{
+	t_stack	a;
+	t_stack	b;
+}	t_push_swap;
 
-int		swap(t_stack *stack);
-int		is_sorted(t_stack *stack, size_t n);
-int		is_rev_sorted(t_stack *stack, size_t n);
-int		to_array(t_stack *stack, int **array_ptr);
-int		print_stack(t_stack *stack);
+int	sa(t_push_swap *push_swap);
+int	sb(t_push_swap *push_swap);
+int	ss(t_push_swap *push_swap);
+int	pa(t_push_swap *push_swap);
+int	pb(t_push_swap *push_swap);
+int	ra(t_push_swap *push_swap);
+int	rb(t_push_swap *push_swap);
+int	rr(t_push_swap *push_swap);
+int	rra(t_push_swap *push_swap);
+int	rrb(t_push_swap *push_swap);
+int	rrr(t_push_swap *push_swap);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:48:15 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/14 16:15:29 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/21 11:59:40 by sangkkim         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 #include "stack.h"
 
 int		parse_input(t_stack *stack, int argc, char **argv);
-int		sort_stack(t_stack *stack_a, t_stack *stack_b);
+void	sort_stack(t_stack *stack_a, t_stack *stack_b);
 
 int	main(int argc, char **argv)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	t_stack	a;
+	t_stack	b;
 
-	init_stack(&stack_a);
-	init_stack(&stack_b);
-	if (parse_input(&stack_a, argc, argv) < 0)
+	init_stack(&a);
+	init_stack(&b);
+	if (parse_input(&a, argc, argv) < 0)
 	{
 		write(2, "Error\n", 6);
-		destroy_stack(&stack_a);
-		destroy_stack(&stack_b);
+		destroy_stack(&a);
+		destroy_stack(&b);
 		return (-1);
 	}
-	sort_stack(&stack_a, &stack_b);
-	print_stack(&stack_a);
-	destroy_stack(&stack_a);
-	destroy_stack(&stack_b);
+	sort_stack(&a, &b);
+	print_stack(&a);
+	destroy_stack(&a);
+	destroy_stack(&b);
 	return (0);
 }

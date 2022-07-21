@@ -1,4 +1,4 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/sangkkim/42Seoul/42cursus/push_swap'
 make -sC libft all
 cc -Wall -Wextra -Werror -o push_swap srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c -I incs \

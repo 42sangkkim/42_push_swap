@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Wed Jul 20 17:10:46 2022
+# Make data base, printed on Thu Jul 21 12:01:10 2022
 
 # Variables
 
@@ -23,6 +24,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 @F = $(notdir $@)
 # makefile
 CURDIR := /Users/sangkkim/42Seoul/42cursus/push_swap
+ 
 # makefile
 SHELL = /bin/sh
 # environment
@@ -184,7 +186,7 @@ all: push_swap
 # Not a target:
 srcs/stack2.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:08:24
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -193,7 +195,7 @@ srcs/stack2.c:
 # Not a target:
 srcs/operation3.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:13:33
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -208,7 +210,7 @@ srcs/operation3.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:00:11
+#  Last modified 2022-07-21 12:00:54
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -217,7 +219,7 @@ Makefile:
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:14:09
+#  Last modified 2022-07-21 11:59:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -226,7 +228,7 @@ srcs/main.c:
 # Not a target:
 srcs/operation.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:02:39
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -235,7 +237,7 @@ srcs/operation.c:
 # Not a target:
 incs/stack.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:05:46
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -259,7 +261,7 @@ fclean: clean
 # Not a target:
 srcs/parse_input.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:07:44
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -283,8 +285,7 @@ clean:
 push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: `'
-#  Last modified 2022-07-17 14:14:47
- 
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -300,9 +301,10 @@ push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/st
 # automatic
 # < := srcs/main.c
 # automatic
+ 
 # ^ := srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/stack2.c srcs/stack_util1.c srcs/stack_util2.c srcs/operation.c srcs/operation2.c srcs/operation3.c srcs/merge_sort.c incs/stack.h incs/operation.h
 # automatic
-# ? := srcs/merge_sort.c
+# ? := srcs/main.c srcs/merge_sort.c incs/operation.h
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=4/20=20%
 #  commands to execute (from `Makefile', line 31):
@@ -314,7 +316,7 @@ push_swap: srcs/main.c srcs/parse_input.c srcs/parse_int.c srcs/stack1.c srcs/st
 # Not a target:
 srcs/stack_util1.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:08:56
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -323,7 +325,7 @@ srcs/stack_util1.c:
 # Not a target:
 srcs/operation2.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:03:08
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -332,7 +334,7 @@ srcs/operation2.c:
 # Not a target:
 srcs/merge_sort.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-20 10:33:58
+#  Last modified 2022-07-21 12:00:42
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -350,7 +352,7 @@ srcs/parse_int.c:
 # Not a target:
 srcs/stack1.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 12:09:24
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -359,7 +361,7 @@ srcs/stack1.c:
 # Not a target:
 srcs/stack_util2.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 14:14:44
+#  Last modified 2022-07-20 23:23:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -368,7 +370,7 @@ srcs/stack_util2.c:
 # Not a target:
 incs/operation.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-17 12:47:53
+#  Last modified 2022-07-21 11:59:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -387,6 +389,6 @@ incs/operation.h:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jul 20 17:10:46 2022
+# Finished Make data base on Thu Jul 21 12:01:10 2022
 
  

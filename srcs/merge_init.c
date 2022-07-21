@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:52:37 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/20 23:17:28 by sangkkim         ###   ########seoul.kr  */
+/*   Updated: 2022/07/21 12:00:31 by sangkkim         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,8 @@ make_triangle_to_a(t_stack *a, t_stack *b, int dir, size_t amt)
 			operation(a, b, rrb, 1);
 			operation(a, b, pa, 1);
 		}
-		else if ((b->top->value > b->top->next->value) == dir
-			&& (b->top->value > b->top->prev->value) == dir
-			&& (b->top->next->value > b->top->prev->value) != dir)
+		else if ((b->top->value > b->top->next->value) == dir)
 		{
-			operation(a, b, pa, 1);
-			operation(a, b, rrb, 1);
-			operation(a, b, pa, 2);
-		}
-		else if ((b->top->next->value > b->top->prev->value) == dir) // next is first
-		{
-			operation(a, b, sa, 1);
-			operation(a, b, pa, 1);
-			if ((b->top->value > b->top->prev->value) == dir)
 			{
 				operation(a, b, pa, 1);
 				operation(a, b, rrb, 1);

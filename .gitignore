@@ -1,2 +1,4 @@
 libft
-testers
+tester
+*log
+push_swap

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:27:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/21 22:06:37 by sangkkim         ###   ########seoul.kr  */
+/*   Updated: 2022/07/22 17:30:56 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,38 @@ void	print_stack(t_stack *stack)
 			break ;
 		node = node->next;
 	}
+}
+
+void	print_push_swap(t_push_swap *ps)
+{
+	size_t	a_len;
+	size_t	b_len;
+	t_node	*a;
+	t_node	*b;
+
+	a_len = ps->a.len;
+	a = ps->a.top;
+	b_len = ps->b.len;
+	b = ps->b.top;
+	ft_putstr_fd("------------\na\tb\n------------\n", 1);
+	while (a_len + b_len)
+	{
+		if (a_len)
+		{
+			ft_putnbr_fd(a->value, 1);
+			a = a->next;
+			a_len--;
+		}
+		ft_putstr_fd("\t", 1);
+		if (b_len)
+		{
+			ft_putnbr_fd(b->value, 1);
+			b = b->next;
+			b_len--;
+		}
+		ft_putstr_fd("\n", 1);
+	}
+	ft_putstr_fd("------------\n", 1);
 }
 
 int	to_array(t_stack *stack, int **arr_ptr)

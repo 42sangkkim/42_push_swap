@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:25:01 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/21 21:45:46 by sangkkim         ###   ########seoul.kr  */
+/*   Updated: 2022/07/22 16:56:28 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	r_rotate(t_stack *stack)
 {
 	if (stack->len < 0)
 		return (0);
-	stack->top = stack->top->next;
+	stack->top = stack->top->prev;
 	return (1);
 }
 

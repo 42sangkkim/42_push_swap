@@ -6,7 +6,7 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/21 22:01:19 by sangkkim         ###   ########seoul.kr   #
+#    Updated: 2022/07/22 16:13:30 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME:=push_swap
 
 SRC_DIR:=srcs
 SRCS:=main.c parse_input.c parse_int.c utils1.c \
-	stack.c op_swap.c op_push.c op_rotate.c op_r_rotate.c
+	stack.c op_swap.c op_push.c op_rotate.c op_r_rotate.c \
+	merge_main.c merge_init.c merge_merge.c
 
 INC_DIR:=incs
 INCS:=push_swap.h

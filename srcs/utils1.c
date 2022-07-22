@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:27:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 17:30:56 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:41:04 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,20 @@ int	ft_pow(int a, int b)
 	while (b-- > 0)
 		pow *= a;
 	return (pow);
+}
+
+int is_sorted(t_stack *stack, size_t n)
+{
+	t_node	*node;
+
+	if (n > stack->len)
+		n = stack->len;
+	node = stack->top;
+	while (--n)
+	{
+		if (node->value > node->next->value)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }

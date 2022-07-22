@@ -6,12 +6,13 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 22:14:31 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 17:16:17 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:46:52 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int		tiny_sort(t_push_swap *ps);
 void	init_depth(t_push_swap *push_swap, size_t n, int depth);
 void	merge_depth(t_push_swap *push_swap, size_t n, int depth);
 
@@ -23,10 +24,15 @@ void	sort_stack(t_push_swap *push_swap)
 	size_t	n;
 
 	n = push_swap->a.len;
-	depth = calc_depth(n);
-	init_depth(push_swap, n, depth);
-	while (depth--)
-		merge_depth(push_swap, n, depth);
+	if (n <= 6)
+		tiny_sort(push_swap);
+	else
+	{
+		depth = calc_depth(n);
+		init_depth(push_swap, n, depth);
+		while (depth--)
+			merge_depth(push_swap, n, depth);
+	}
 }
 
 int	calc_depth(size_t n)

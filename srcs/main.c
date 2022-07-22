@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:34:48 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 18:19:23 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:55:01 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 		return (0);
 	}
-	// print_push_swap(&push_swap);
 	sort_stack(&push_swap);
-	// print_push_swap(&push_swap);
 	return (0);
 }
 

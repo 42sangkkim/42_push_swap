@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:27:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 18:41:04 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:53:59 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,31 @@ void	print_stack(t_stack *stack)
 
 void	print_push_swap(t_push_swap *ps)
 {
-	size_t	a_len;
-	size_t	b_len;
+	size_t	len[2];
 	t_node	*a;
 	t_node	*b;
 
-	a_len = ps->a.len;
+	len[0] = ps->a.len;
 	a = ps->a.top;
-	b_len = ps->b.len;
+	len[1] = ps->b.len;
 	b = ps->b.top;
-	ft_putstr_fd("------------\na\tb\n------------\n", 1);
-	while (a_len + b_len)
+	while (len[0] + len[1])
 	{
-		if (a_len)
+		if (len[0])
 		{
 			ft_putnbr_fd(a->value, 1);
 			a = a->next;
-			a_len--;
+			len[0]--;
 		}
 		ft_putstr_fd("\t", 1);
-		if (b_len)
+		if (len[1])
 		{
 			ft_putnbr_fd(b->value, 1);
 			b = b->next;
-			b_len--;
+			len[1]--;
 		}
 		ft_putstr_fd("\n", 1);
 	}
-	ft_putstr_fd("------------\n", 1);
 }
 
 int	to_array(t_stack *stack, int **arr_ptr)
@@ -91,7 +88,7 @@ int	ft_pow(int a, int b)
 	return (pow);
 }
 
-int is_sorted(t_stack *stack, size_t n)
+int	is_sorted(t_stack *stack, size_t n)
 {
 	t_node	*node;
 

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 00:06:06 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 18:04:51 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:00:04 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 int		calc_direction(size_t pow, size_t i);
 size_t	calc_amount(size_t pow, size_t i, size_t n);
 
+void	merge_to_a(t_push_swap *ps, size_t pow, size_t n, size_t len_to_a);
+void	merge_to_b(t_push_swap *ps, size_t pow, size_t n, size_t len_to_b);
 void	make_triangle_a(t_push_swap *ps, int dir, size_t amt);
 void	make_triangle_b(t_push_swap *ps, int dir, size_t amt);
-#include <stdio.h>
+
 void	merge_depth(t_push_swap *push_swap, size_t n, int depth)
 {
 	size_t	i;
@@ -32,28 +34,36 @@ void	merge_depth(t_push_swap *push_swap, size_t n, int depth)
 	while (i < pow)
 		amt += calc_amount(pow * 3, 2 * pow + i++, n);
 	if (depth % 2 == 0)
-	{
-		while (amt--)
-			pa(push_swap);
-		i = 0;
-		while (i < pow)
-		{
-			make_triangle_a(push_swap, \
-				calc_direction(pow, i), calc_amount(pow, i, n));
-			i++;
-		}
-	}
+		merge_to_a(push_swap, pow, n, amt);
 	else
+		merge_to_b(push_swap, pow, n, amt);
+}
+
+void	merge_to_a(t_push_swap *ps, size_t pow, size_t n, size_t len_to_a)
+{
+	size_t	i;
+
+	while (len_to_a--)
+		pa(ps);
+	i = 0;
+	while (i < pow)
 	{
-		while (amt--)
-			pb(push_swap);
-		i = 0;
-		while (i < pow)
-		{
-			make_triangle_b(push_swap, \
-				calc_direction(pow, i), calc_amount(pow, i, n));
-			i++;
-		}
+		make_triangle_a(ps, calc_direction(pow, i), calc_amount(pow, i, n));
+		i++;
+	}
+}
+
+void	merge_to_b(t_push_swap *ps, size_t pow, size_t n, size_t len_to_b)
+{
+	size_t	i;
+
+	while (len_to_b--)
+		pb(ps);
+	i = 0;
+	while (i < pow)
+	{
+		make_triangle_b(ps, calc_direction(pow, i), calc_amount(pow, i, n));
+		i++;
 	}
 }
 
@@ -64,8 +74,6 @@ void	make_triangle_a(t_push_swap *ps, int dir, size_t amt)
 	rest[0] = amt / 3;
 	rest[1] = amt / 3 + (amt % 3 > 0);
 	rest[2] = amt / 3 + (amt % 3 > 1);
-	// printf("a need [%zu] , b need [%zu]\n", rest[2], rest[0] + rest[1]);
-	// print_push_swap(ps);
 	while (rest[0] + rest[1] + rest[2])
 	{
 		if (rest[0]
@@ -90,8 +98,6 @@ void	make_triangle_b(t_push_swap *ps, int dir, size_t amt)
 	rest[0] = amt / 3;
 	rest[1] = amt / 3 + (amt % 3 > 0);
 	rest[2] = amt / 3 + (amt % 3 > 1);
-	// printf("a need [%zu] , b need [%zu]\n", rest[0] + rest[1], rest[2]);
-	// print_push_swap(ps);
 	while (rest[0] + rest[1] + rest[2])
 	{
 		if (rest[0]

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:52:37 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 17:48:32 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:55:19 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	init_depth(t_push_swap *push_swap, size_t n, int depth)
 	{
 		while (i < pow)
 		{
-			// print_push_swap(push_swap);
 			make_triangle_to_b(push_swap,
 				calc_direction(pow, i), calc_amount(pow, i, n));
 			i++;
@@ -44,7 +43,6 @@ void	init_depth(t_push_swap *push_swap, size_t n, int depth)
 			;
 		while (i < pow)
 		{
-			// print_push_swap(push_swap);
 			make_triangle_to_a(push_swap,
 				calc_direction(pow, i), calc_amount(pow, i, n));
 			i++;
@@ -71,7 +69,7 @@ int	make_triangle_to_a(t_push_swap *ps, int dir, size_t amt)
 		else if ((ps->b.top->prev->value > ps->b.top->next->value) == dir)
 			return (pa(ps) && rrb(ps) && pa(ps) && pa(ps));
 		else
-			return (pa(ps) && pa(ps) && rrb(ps) && pa(ps) );
+			return (pa(ps) && pa(ps) && rrb(ps) && pa(ps));
 	}
 	else
 		return (make_triangle4_to_a(ps, dir));

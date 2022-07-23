@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/21 22:20:28 by sangkkim         ###   ########seoul.kr  */
+/*   Updated: 2022/07/23 18:39:46 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int	check_duplicate(t_stack *stack)
 		}
 		i++;
 	}
+	free(array);
 	return (0);
 }

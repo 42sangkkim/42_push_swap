@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 22:14:31 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 19:51:35 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/22 21:38:25 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	sort_stack(t_push_swap *push_swap)
 	int		depth;
 	size_t	n;
 
+	if (is_sorted(&(push_swap->a), push_swap->a.len))
+		return ;
 	n = push_swap->a.len;
 	if (n <= 6)
 		tiny_sort(push_swap);

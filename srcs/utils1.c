@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:27:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 19:53:59 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/23 18:38:52 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ void	print_push_swap(t_push_swap *ps)
 	{
 		if (len[0])
 		{
-			ft_putnbr_fd(a->value, 1);
+			ft_putnbr_fd(a->value, STDOUT_FILENO);
 			a = a->next;
 			len[0]--;
 		}
 		ft_putstr_fd("\t", 1);
 		if (len[1])
 		{
-			ft_putnbr_fd(b->value, 1);
+			ft_putnbr_fd(b->value, STDOUT_FILENO);
 			b = b->next;
 			len[1]--;
 		}
-		ft_putstr_fd("\n", 1);
+		ft_putstr_fd("\n", STDOUT_FILENO);
 	}
 }
 

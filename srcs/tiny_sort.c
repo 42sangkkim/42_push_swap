@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:21:35 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 19:45:49 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/23 18:37:46 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	tiny_sort(t_push_swap *ps)
 		return (tiny_sort_a(ps));
 	else if (ps->a.len <= 6)
 	{
-		i = ps->a.len / 2;
+		i = ps->a.len - 3;
 		while (i--)
 			pb(ps);
 		tiny_sort_a(ps);
@@ -47,13 +47,12 @@ int	tiny_sort_a(t_push_swap *ps)
 	{
 		if (ps->a.top->value > ps->a.top->next->value
 			&& ps->a.top->value > ps->a.top->prev->value)
-			return (ra(ps) && tiny_sort_a(ps));
+			ra(ps);
 		else if (ps->a.top->next->value > ps->a.top->prev->value)
-			return (rra(ps) && tiny_sort_a(ps));
-		else if (ps->a.top->value > ps->a.top->next->value)
-			return (sa(ps));
-		else
-			return (1);
+			rra(ps);
+		if (ps->a.top->value > ps->a.top->next->value)
+			sa(ps);
+		return (1);
 	}
 	else
 		return (0);
@@ -69,13 +68,12 @@ int	tiny_rev_sort_b(t_push_swap *ps)
 	{
 		if (ps->b.top->value < ps->b.top->next->value
 			&& ps->b.top->value < ps->b.top->prev->value)
-			return (rb(ps) && tiny_rev_sort_b(ps));
+			rb(ps);
 		else if (ps->b.top->next->value < ps->b.top->prev->value)
-			return (rrb(ps) && tiny_rev_sort_b(ps));
-		else if (ps->b.top->value < ps->b.top->next->value)
-			return (sb(ps));
-		else
-			return (1);
+			rrb(ps);
+		if (ps->b.top->value < ps->b.top->next->value)
+			sb(ps);
+		return (1);
 	}
 	else
 		return (0);

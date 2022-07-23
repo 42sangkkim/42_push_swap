@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push_bonus.c                                    :+:      :+:    :+:   */
+/*   push_swap2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/21 21:04:05 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:04:30 by sangkkim         ###   ########.fr       */
+/*   Created: 2022/07/23 20:37:13 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/07/23 20:39:15 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
 
-int	push_node(t_stack *stack, t_node *node);
-int	pop_node(t_stack *stack, t_node **node_ptr);
-
-static int	push(t_stack *dst, t_stack *src)
+int	ra(t_stack *a, t_stack *b, int print)
 {
-	t_node	*node;
-
-	if (src->len == 0)
-		return (0);
-	pop_node(src, &node);
-	push_node(dst, node);
-	return (1);
-}
-
-int	pa(t_push_swap *push_swap)
-{
-	if (push(&(push_swap->a), &(push_swap->b)))
+	(void)b;
+	if (rotate(a))
+	{
+		if (print)
+			ft_putstr_fd("ra\n", STDOUT_FILENO);
 		return (1);
+	}
 	return (0);
 }
 
-int	pb(t_push_swap *push_swap)
+int	rb(t_stack *a, t_stack *b, int print)
 {
-	if (push(&(push_swap->b), &(push_swap->a)))
+	(void)a;
+	if (rotate(b))
+	{
+		if (print)
+			ft_putstr_fd("rb\n", STDOUT_FILENO);
 		return (1);
+	}
+	return (0);
+}
+
+int	rr(t_stack *a, t_stack *b, int print)
+{
+	if (rotate(a) + rotate(b))
+	{
+		if (print)
+			ft_putstr_fd("rr\n", STDOUT_FILENO);
+		return (1);
+	}
 	return (0);
 }

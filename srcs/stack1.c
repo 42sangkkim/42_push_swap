@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 20:30:28 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/21 22:03:34 by sangkkim         ###   ########seoul.kr  */
+/*   Updated: 2022/07/23 19:12:58 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
+
+int	init_stack(t_stack *stack)
+{
+	stack->len = 0;
+	stack->top = NULL;
+	return (1);
+}
+
+int	clear_stack(t_stack *stack)
+{
+	t_node	*node;
+
+	while (pop_node(stack, &node))
+		free(node);
+	return (1);
+}
 
 int	push_node(t_stack *stack, t_node *node)
 {
@@ -28,16 +44,14 @@ int	push_node(t_stack *stack, t_node *node)
 	}
 	stack->top = node;
 	stack->len++;
-	return (0);
+	return (1);
 }
 
 int	pop_node(t_stack *stack, t_node **node_ptr)
 {
+	*node_ptr = NULL;
 	if (stack->len == 0)
-	{
-		*node_ptr = NULL;
-		return (-1);
-	}
+		return (0);
 	*node_ptr = stack->top;
 	if (stack->len == 1)
 		stack->top = NULL;
@@ -50,19 +64,17 @@ int	pop_node(t_stack *stack, t_node **node_ptr)
 	(*node_ptr)->next = NULL;
 	(*node_ptr)->prev = NULL;
 	stack->len--;
-	return (0);
+	return (1);
 }
 
-int	push_value(t_stack *stack, int value)
+int	swap(t_stack *stack)
 {
-	t_node	*node;
+	int	tmp;
 
-	node = malloc(sizeof(t_node));
-	if (node == NULL)
-		return (-1);
-	node->value = value;
-	node->next = NULL;
-	node->prev = NULL;
-	push_node(stack, node);
-	return (0);
+	if (stack->len < 2)
+		return (0);
+	tmp = stack->top->value;
+	stack->top->value = stack->top->next->value;
+	stack->top->next->value = tmp;
+	return (1);
 }

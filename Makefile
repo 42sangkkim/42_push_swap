@@ -6,7 +6,7 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/24 15:22:39 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/24 16:39:47 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,16 @@ BONUS:=checker
 
 SRC_DIR:=srcs
 SRCS:=main.c parse_input.c parse_int.c utils1.c \
-	stack.c op_swap.c op_push.c op_rotate.c op_r_rotate.c \
+	stack1.c stack2.c stack3.c \
+	push_swap1.c push_swap2.c push_swap3.c \
 	merge_main.c merge_init.c merge_merge.c tiny_sort.c
-BSRCS:= main_bonus.c parse_input.c parse_int.c get_next_line_bonus.c \
-	op_swap.c op_push.c op_rotate.c op_r_rotate.c \
-	stack.c utils1.c
+
+BSRCS:= main_bonus.c parse_input.c parse_int.c get_next_line_bonus.c utils1.c \
+	stack1.c stack2.c stack3.c \
+	push_swap1.c push_swap2.c push_swap3.c
 
 INC_DIR:=incs
-INCS:=push_swap.h utils.h
+INCS:=stack.h push_swap.h utils.h
 
 LIBFT:=ft
 LIBFT_DIR:=libft

@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 15:13:53 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:10:30 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "push_swap.h"
 #include "utils.h"
 
-int		push_value(t_stack *stack, int value);
 char	*parse_int(int *value, char *str);
 int		parse_string(t_stack *stack, char *input);
 int		check_duplicate(t_stack *stack);
@@ -60,7 +59,7 @@ int	parse_string(t_stack *stack, char *input)
 			input = parse_int(&value, input);
 			if (input == NULL)
 				return (-1);
-			if (push_value(stack, value) < 0)
+			if (push_value(stack, value) == 0)
 				return (-1);
 			stack->top = stack->top->next;
 		}
@@ -76,7 +75,7 @@ int	check_duplicate(t_stack *stack)
 	size_t	j;
 	int		*array;
 
-	if (to_array(stack, &array) < 0)
+	if (to_array(stack, &array) == 0)
 		return (-1);
 	i = 0;
 	while (i < stack->len)

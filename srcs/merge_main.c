@@ -6,35 +6,35 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 22:14:31 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 15:21:26 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:36:33 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "utils.h"
 
-int		tiny_sort(t_push_swap *ps);
-void	init_depth(t_push_swap *push_swap, size_t n, int depth);
-void	merge_depth(t_push_swap *push_swap, size_t n, int depth);
+int		tiny_sort(t_stack *a, t_stack *b);
+void	init_depth(t_stack *a, t_stack *b, size_t n, int depth);
+void	merge_depth(t_stack *a, t_stack *b, size_t n, int depth);
 
 int		calc_depth(size_t n);
 
-void	sort_stack(t_push_swap *push_swap)
+void	sort_stack(t_stack *a, t_stack *b)
 {
 	int		depth;
 	size_t	n;
 
-	if (is_sorted(&(push_swap->a), push_swap->a.len))
+	if (is_sorted(a, a->len))
 		return ;
-	n = push_swap->a.len;
+	n = a->len;
 	if (n <= 6)
-		tiny_sort(push_swap);
+		tiny_sort(a, b);
 	else
 	{
 		depth = calc_depth(n);
-		init_depth(push_swap, n, depth);
+		init_depth(a, b, n, depth);
 		while (depth--)
-			merge_depth(push_swap, n, depth);
+			merge_depth(a, b, n, depth);
 	}
 }
 

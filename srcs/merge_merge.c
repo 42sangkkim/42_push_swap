@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 00:06:06 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 15:17:22 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:44:03 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 int		calc_direction(size_t pow, size_t i);
 size_t	calc_amount(size_t pow, size_t i, size_t n);
 
-void	merge_to_a(t_push_swap *ps, size_t pow, size_t n, size_t len_to_a);
-void	merge_to_b(t_push_swap *ps, size_t pow, size_t n, size_t len_to_b);
-void	make_triangle_a(t_push_swap *ps, int dir, size_t amt);
-void	make_triangle_b(t_push_swap *ps, int dir, size_t amt);
+void	merge_to_a(t_stack *a, t_stack *b, size_t pow, size_t n);
+void	merge_to_b(t_stack *a, t_stack *b, size_t pow, size_t n);
+void	make_triangle_a(t_stack *a, t_stack *b, int dir, size_t amt);
+void	make_triangle_b(t_stack *a, t_stack *b, int dir, size_t amt);
 
-void	merge_depth(t_push_swap *push_swap, size_t n, int depth)
+void	merge_depth(t_stack *a, t_stack *b, size_t n, int depth)
 {
 	size_t	i;
 	size_t	amt;
@@ -34,40 +34,44 @@ void	merge_depth(t_push_swap *push_swap, size_t n, int depth)
 	while (i < pow)
 		amt += calc_amount(pow * 3, 2 * pow + i++, n);
 	if (depth % 2 == 0)
-		merge_to_a(push_swap, pow, n, amt);
+	{
+		while (amt--)
+			pa(a, b, 1);
+		merge_to_a(a, b, pow, n);
+	}
 	else
-		merge_to_b(push_swap, pow, n, amt);
+	{
+		while (amt--)
+			pb(a, b, n);
+		merge_to_b(a, b, pow, n);
+	}
 }
 
-void	merge_to_a(t_push_swap *ps, size_t pow, size_t n, size_t len_to_a)
+void	merge_to_a(t_stack *a, t_stack *b, size_t pow, size_t n)
 {
 	size_t	i;
 
-	while (len_to_a--)
-		pa(ps, 1);
 	i = 0;
 	while (i < pow)
 	{
-		make_triangle_a(ps, calc_direction(pow, i), calc_amount(pow, i, n));
+		make_triangle_a(a, b, calc_direction(pow, i), calc_amount(pow, i, n));
 		i++;
 	}
 }
 
-void	merge_to_b(t_push_swap *ps, size_t pow, size_t n, size_t len_to_b)
+void	merge_to_b(t_stack *a, t_stack *b, size_t pow, size_t n)
 {
 	size_t	i;
 
-	while (len_to_b--)
-		pb(ps, 1);
 	i = 0;
 	while (i < pow)
 	{
-		make_triangle_b(ps, calc_direction(pow, i), calc_amount(pow, i, n));
+		make_triangle_b(a, b, calc_direction(pow, i), calc_amount(pow, i, n));
 		i++;
 	}
 }
 
-void	make_triangle_a(t_push_swap *ps, int dir, size_t amt)
+void	make_triangle_a(t_stack *a, t_stack *b, int dir, size_t amt)
 {
 	size_t	rest[3];
 
@@ -78,20 +82,20 @@ void	make_triangle_a(t_push_swap *ps, int dir, size_t amt)
 	{
 		if (rest[0]
 			&& (!rest[1]
-				|| (ps->b.top->prev->value > ps->b.top->value) == dir)
+				|| (b->top->prev->value > b->top->value) == dir)
 			&& (!rest[2]
-				|| (ps->b.top->prev->value > ps->a.top->prev->value) == dir))
-			rest[0] -= (rrb(ps, 1) && pa (ps, 1)) > 0;
+				|| (b->top->prev->value > a->top->prev->value) == dir))
+			rest[0] -= (rrb(a, b, 1) && pa(a, b, 1));
 		else if (rest[1]
 			&& (!rest[2]
-				|| (ps->b.top->value > ps->a.top->prev->value) == dir))
-			rest[1] -= pa(ps, 1) > 0;
+				|| (b->top->value > a->top->prev->value) == dir))
+			rest[1] -= pa(a, b, 1);
 		else
-			rest[2] -= rra(ps, 1) > 0;
+			rest[2] -= rra(a, b, 1);
 	}
 }
 
-void	make_triangle_b(t_push_swap *ps, int dir, size_t amt)
+void	make_triangle_b(t_stack *a, t_stack *b, int dir, size_t amt)
 {
 	size_t	rest[3];
 
@@ -102,15 +106,15 @@ void	make_triangle_b(t_push_swap *ps, int dir, size_t amt)
 	{
 		if (rest[0]
 			&& (!rest[1]
-				|| (ps->a.top->prev->value > ps->a.top->value) == dir)
+				|| (a->top->prev->value > a->top->value) == dir)
 			&& (!rest[2]
-				|| (ps->a.top->prev->value > ps->b.top->prev->value) == dir))
-			rest[0] -= (rra(ps, 1) && pb (ps, 1)) > 0;
+				|| (a->top->prev->value > b->top->prev->value) == dir))
+			rest[0] -= (rra(a, b, 1) && pb(a, b, 1));
 		else if (rest[1]
 			&& (!rest[2]
-				|| (ps->a.top->value > ps->b.top->prev->value) == dir))
-			rest[1] -= pb(ps, 1) > 0;
+				|| (a->top->value > b->top->prev->value) == dir))
+			rest[1] -= pb(a, b, 1);
 		else
-			rest[2] -= rrb(ps, 1) > 0;
+			rest[2] -= rrb(a, b, 1);
 	}
 }

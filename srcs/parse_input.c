@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:38:00 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/23 18:39:46 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:13:53 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ int	check_duplicate(t_stack *stack)
 		while (j < stack->len)
 		{
 			if (array[i] == array[j])
+			{
+				free(array);
 				return (-1);
+			}
 			j++;
 		}
 		i++;

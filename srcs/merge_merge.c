@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 00:06:06 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 20:00:04 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:17:22 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	merge_to_a(t_push_swap *ps, size_t pow, size_t n, size_t len_to_a)
 	size_t	i;
 
 	while (len_to_a--)
-		pa(ps);
+		pa(ps, 1);
 	i = 0;
 	while (i < pow)
 	{
@@ -58,7 +58,7 @@ void	merge_to_b(t_push_swap *ps, size_t pow, size_t n, size_t len_to_b)
 	size_t	i;
 
 	while (len_to_b--)
-		pb(ps);
+		pb(ps, 1);
 	i = 0;
 	while (i < pow)
 	{
@@ -81,13 +81,13 @@ void	make_triangle_a(t_push_swap *ps, int dir, size_t amt)
 				|| (ps->b.top->prev->value > ps->b.top->value) == dir)
 			&& (!rest[2]
 				|| (ps->b.top->prev->value > ps->a.top->prev->value) == dir))
-			rest[0] -= (rrb(ps) && pa (ps)) > 0;
+			rest[0] -= (rrb(ps, 1) && pa (ps, 1)) > 0;
 		else if (rest[1]
 			&& (!rest[2]
 				|| (ps->b.top->value > ps->a.top->prev->value) == dir))
-			rest[1] -= pa(ps) > 0;
+			rest[1] -= pa(ps, 1) > 0;
 		else
-			rest[2] -= rra(ps) > 0;
+			rest[2] -= rra(ps, 1) > 0;
 	}
 }
 
@@ -105,12 +105,12 @@ void	make_triangle_b(t_push_swap *ps, int dir, size_t amt)
 				|| (ps->a.top->prev->value > ps->a.top->value) == dir)
 			&& (!rest[2]
 				|| (ps->a.top->prev->value > ps->b.top->prev->value) == dir))
-			rest[0] -= (rra(ps) && pb (ps)) > 0;
+			rest[0] -= (rra(ps, 1) && pb (ps, 1)) > 0;
 		else if (rest[1]
 			&& (!rest[2]
 				|| (ps->a.top->value > ps->b.top->prev->value) == dir))
-			rest[1] -= pb(ps) > 0;
+			rest[1] -= pb(ps, 1) > 0;
 		else
-			rest[2] -= rrb(ps) > 0;
+			rest[2] -= rrb(ps, 1) > 0;
 	}
 }

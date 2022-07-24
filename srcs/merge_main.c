@@ -6,11 +6,12 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 22:14:31 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:38:25 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:21:26 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "utils.h"
 
 int		tiny_sort(t_push_swap *ps);
 void	init_depth(t_push_swap *push_swap, size_t n, int depth);

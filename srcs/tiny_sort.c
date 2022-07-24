@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:21:35 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/23 18:37:46 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:19:47 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	tiny_sort(t_push_swap *ps)
 	{
 		i = ps->a.len - 3;
 		while (i--)
-			pb(ps);
+			pb(ps, 1);
 		tiny_sort_a(ps);
 		tiny_rev_sort_b(ps);
 		tiny_merge(ps);
@@ -42,16 +42,16 @@ int	tiny_sort_a(t_push_swap *ps)
 	if (ps->a.len <= 1)
 		return (1);
 	else if (ps->a.len == 2)
-		return (ps->a.top->value < ps->a.top->next->value || sa(ps));
+		return (ps->a.top->value < ps->a.top->next->value || sa(ps, 1));
 	else if (ps->a.len == 3)
 	{
 		if (ps->a.top->value > ps->a.top->next->value
 			&& ps->a.top->value > ps->a.top->prev->value)
-			ra(ps);
+			ra(ps, 1);
 		else if (ps->a.top->next->value > ps->a.top->prev->value)
-			rra(ps);
+			rra(ps, 1);
 		if (ps->a.top->value > ps->a.top->next->value)
-			sa(ps);
+			sa(ps, 1);
 		return (1);
 	}
 	else
@@ -63,16 +63,16 @@ int	tiny_rev_sort_b(t_push_swap *ps)
 	if (ps->b.len <= 1)
 		return (1);
 	else if (ps->b.len == 2)
-		return (ps->b.top->value > ps->b.top->next->value || sb(ps));
+		return (ps->b.top->value > ps->b.top->next->value || sb(ps, 1));
 	else if (ps->b.len == 3)
 	{
 		if (ps->b.top->value < ps->b.top->next->value
 			&& ps->b.top->value < ps->b.top->prev->value)
-			rb(ps);
+			rb(ps, 1);
 		else if (ps->b.top->next->value < ps->b.top->prev->value)
-			rrb(ps);
+			rrb(ps, 1);
 		if (ps->b.top->value < ps->b.top->next->value)
-			sb(ps);
+			sb(ps, 1);
 		return (1);
 	}
 	else
@@ -88,13 +88,13 @@ int	tiny_merge(t_push_swap *ps)
 	while (rest[0] + rest[1])
 	{
 		if (!rest[1])
-			rest[0] -= rra(ps);
+			rest[0] -= rra(ps, 1);
 		else if (!rest[0])
-			rest[1] -= pa(ps);
+			rest[1] -= pa(ps, 1);
 		else if (ps->a.top->prev->value > ps->b.top->value)
-			rest[0] -= rra(ps);
+			rest[0] -= rra(ps, 1);
 		else
-			rest[1] -= pa(ps);
+			rest[1] -= pa(ps, 1);
 	}
 	return (1);
 }

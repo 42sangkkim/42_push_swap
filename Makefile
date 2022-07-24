@@ -6,7 +6,7 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/09 18:36:41 by sangkkim          #+#    #+#              #
-#    Updated: 2022/07/22 21:16:02 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/07/24 15:22:39 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS:=main.c parse_input.c parse_int.c utils1.c \
 	stack.c op_swap.c op_push.c op_rotate.c op_r_rotate.c \
 	merge_main.c merge_init.c merge_merge.c tiny_sort.c
 BSRCS:= main_bonus.c parse_input.c parse_int.c get_next_line_bonus.c \
-	op_swap_bonus.c op_push_bonus.c op_rotate_bonus.c op_r_rotate_bonus.c \
+	op_swap.c op_push.c op_rotate.c op_r_rotate.c \
 	stack.c utils1.c
 
 INC_DIR:=incs

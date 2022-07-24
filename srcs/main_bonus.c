@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:34:54 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 21:11:24 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:18:20 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,27 @@ void	operate_push_swap(t_push_swap *ps)
 int	operate(t_push_swap *ps, char *op)
 {
 	if (ft_strncmp(op, "sa\n", 4) == 0)
-		return (sa(ps));
+		return (sa(ps, 0));
 	else if (ft_strncmp(op, "sb\n", 4) == 0)
-		return (sb(ps));
+		return (sb(ps, 0));
 	else if (ft_strncmp(op, "ss\n", 4) == 0)
-		return (ss(ps));
+		return (ss(ps, 0));
 	else if (ft_strncmp(op, "pa\n", 4) == 0)
-		return (pa(ps));
+		return (pa(ps, 0));
 	else if (ft_strncmp(op, "pb\n", 4) == 0)
-		return (pb(ps));
+		return (pb(ps, 0));
 	else if (ft_strncmp(op, "ra\n", 4) == 0)
-		return (ra(ps));
+		return (ra(ps, 0));
 	else if (ft_strncmp(op, "rb\n", 4) == 0)
-		return (rb(ps));
+		return (rb(ps, 0));
 	else if (ft_strncmp(op, "rr\n", 4) == 0)
-		return (rr(ps));
+		return (rr(ps, 0));
 	else if (ft_strncmp(op, "rra\n", 4) == 0)
-		return (rra(ps));
+		return (rra(ps, 0));
 	else if (ft_strncmp(op, "rrb\n", 4) == 0)
-		return (rrb(ps));
+		return (rrb(ps, 0));
 	else if (ft_strncmp(op, "rrr\n", 4) == 0)
-		return (rrr(ps));
+		return (rrr(ps, 0));
 	else
 		return (-1);
 }

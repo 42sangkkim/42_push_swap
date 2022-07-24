@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 20:59:21 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/22 20:47:46 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:13:27 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,34 @@ static int	swap(t_stack *stack)
 	}
 }
 
-int	sa(t_push_swap *push_swap)
+int	sa(t_push_swap *push_swap, int print)
 {
 	if (swap(&(push_swap->a)))
 	{
-		ft_putstr_fd("sa\n", STDOUT_FILENO);
+		if (print)
+			ft_putstr_fd("sa\n", STDOUT_FILENO);
 		return (1);
 	}
 	return (0);
 }
 
-int	sb(t_push_swap *push_swap)
+int	sb(t_push_swap *push_swap, int print)
 {
 	if (swap(&(push_swap->b)))
 	{
-		ft_putstr_fd("sb\n", STDOUT_FILENO);
+		if (print)
+			ft_putstr_fd("sb\n", STDOUT_FILENO);
 		return (1);
 	}
 	return (0);
 }
 
-int	ss(t_push_swap *push_swap)
+int	ss(t_push_swap *push_swap, int print)
 {
 	if (swap(&(push_swap->a)) + swap(&(push_swap->b)))
 	{
-		ft_putstr_fd("ss\n", STDOUT_FILENO);
+		if (print)
+			ft_putstr_fd("ss\n", STDOUT_FILENO);
 		return (1);
 	}
 	return (0);

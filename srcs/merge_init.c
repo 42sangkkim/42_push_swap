@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:52:37 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 17:09:00 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 17:47:57 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,48 +25,49 @@ void	init_depth(t_stack *a, t_stack *b, size_t n, int depth)
 {
 	size_t	i;
 	size_t	pow;
-	int		direction;
-	size_t	amount;
 
 	pow = ft_pow(3, depth);
-	if (depth % 2 == 0)
-	{
-		while (a->len)
-			pb(a, b, 1);
-	}
 	i = 0;
-	while (i < pow)
+	if (depth % 2 == 1)
 	{
-		direction = calc_direction(pow, i);
-		amount = calc_amount(pow, i, n);
-		if (depth % 2 == 1)
-			make_triangle_to_b(a, b, direction, amount);
-		else
-			make_triangle_to_a(a, b, direction, amount);
-		i++;
+		i = 0;
+		while (i < pow)
+			make_triangle_to_b(a, b, \
+				calc_direction(pow, i), calc_amount(pow, i, n));
+	}
+	else
+	{
+		i = pow;
+		while (i--)
+			make_triangle_to_a(a, b, \
+				calc_direction(pow, i), calc_amount(pow, i, n));
 	}
 }
 
 int	make_triangle_to_a(t_stack *a, t_stack *b, int dir, size_t amt)
 {
 	if (amt == 1)
-		return (pa(a, b, 1));
+		return (ra(a, b, 1));
 	else if (amt == 2)
 	{
-		if ((b->top->value > b->top->next->value) != dir)
-			sb(a, b, 1);
-		return (pa(a, b, 1) && pa(a, b, 1));
+		if ((a->top->value < a->top->next->value) != dir)
+			sa(a, b, 1);
+		return (ra(a, b, 1) && ra(a, b, 1));
 	}
 	else if (amt == 3)
 	{
-		if ((b->top->value > b->top->next->value) != dir)
-			sb(a, b, 1);
-		if ((b->top->prev->value > b->top->value) == dir)
-			return (rrb(a, b, 1) && pa(a, b, 1) && pa(a, b, 1) && pa(a, b, 1));
-		else if ((b->top->prev->value > b->top->next->value) == dir)
-			return (pa(a, b, 1) && rrb(a, b, 1) && pa(a, b, 1) && pa(a, b, 1));
+		if ((a->top->value < a->top->next->value) != dir)
+			sa(a, b, 1);
+		if ((a->top->value < a->top->next->next->value) == dir)
+		{
+			ra(a, b, 1);
+			if ((a->top->value < a->top->next->value) != dir)
+				sa(a, b, 1);
+			return (ra(a, b, 1) && ra(a, b, 1));
+		}
 		else
-			return (pa(a, b, 1) && pa(a, b, 1) && rrb(a, b, 1) && pa(a, b, 1));
+			return (pb(a, b, 1) && sa(a, b, 1) && ra(a, b, 1) \
+				&& pa(a, b, 1) && ra(a, b, 1) && ra(a, b, 1));
 	}
 	else
 		return (make_triangle4_to_a(a, b, dir));
@@ -74,31 +75,28 @@ int	make_triangle_to_a(t_stack *a, t_stack *b, int dir, size_t amt)
 
 int	make_triangle4_to_a(t_stack *a, t_stack *b, int dir)
 {
-	if ((b->top->value > b->top->next->value) != dir)
+	size_t	rest[2];
+
+	pb(a, b, 1);
+	pb(a, b, 1);
+	if ((a->top->value < a->top->next->value) != dir)
+		sa(a, b, 1);
+	if ((b->top->value < b->top->next->value) != dir)
 		sb(a, b, 1);
-	if ((b->top->value > b->top->next->next->value) == dir
-		&& (b->top->value > b->top->prev->value) == dir)
-		return (pa(a, b, 1) && make_triangle_to_a(a, b, dir, 3));
-	else if ((b->top->prev->value > b->top->value) == dir
-		&& (b->top->prev->value > b->top->next->next->value) == dir)
+	rest[0] = 2;
+	rest[1] = 2;
+	while (rest[0] + rest[1])
 	{
-		if ((b->top->value > b->top->next->next->value) == dir)
-			return (rrb(a, b, 1) && pa(a, b, 1) && pa(a, b, 1) \
-				&& make_triangle_to_a(a, b, dir, 2));
+		if (!rest[1])
+			rest[0] -= ra(a, b, 1);
+		else if (!rest[0])
+			rest[1] -= (pa(a, b, 1) && ra(a, b, 1));
+		else if ((a->top->value < b->top->value) == dir)
+			rest[0] -= ra(a, b, 1);
 		else
-			return (rrb(a, b, 1) && pa(a, b, 1) && pa(a, b, 1) \
-			&& sb(a, b, 1) && pa(a, b, 1) && sa(a, b, 1) && pa(a, b, 1));
+			rest[1] -= (pa(a, b, 1) && ra(a, b, 1));
 	}
-	else if (pa(a, b, 1) && sb(a, b, 1) && pa(a, b, 1) && sa(a, b, 1))
-	{
-		if ((b->top->value > b->top->prev->value) == dir)
-			return (pa(a, b, 1) && rrb(a, b, 1) && pa(a, b, 1));
-		else if ((a->top->value > b->top->prev->value) == dir)
-			return (rrb(a, b, 1) && pa(a, b, 1) && pa(a, b, 1));
-		else
-			return (rrb(a, b, 1) && pa(a, b, 1) && sa(a, b, 1) && pa(a, b, 1));
-	}
-	return (0);
+	return (1);
 }
 
 int	make_triangle_to_b(t_stack *a, t_stack *b, int dir, size_t amt)

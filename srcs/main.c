@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:34:48 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 17:49:07 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:39:44 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
+	if (argc < 2)
+		return (0);
 	init_stack(&a);
 	init_stack(&b);
 	if (parse_input(&a, argc, argv) < 0)

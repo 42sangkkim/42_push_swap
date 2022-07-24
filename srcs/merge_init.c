@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:52:37 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 17:47:57 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 18:32:54 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	init_depth(t_stack *a, t_stack *b, size_t n, int depth)
 		while (i < pow)
 			make_triangle_to_b(a, b, \
 				calc_direction(pow, i), calc_amount(pow, i, n));
+		i++;
 	}
 	else
 	{

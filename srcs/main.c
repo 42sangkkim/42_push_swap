@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 21:34:48 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/27 14:06:56 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:16:06 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sort_stack(&a, &b);
-	// clear_stack(&a);
-	// clear_stack(&b);
+	clear_stack(&a);
+	clear_stack(&b);
 	return (0);
 }

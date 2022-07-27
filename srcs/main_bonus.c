@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 20:34:54 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/07/24 16:40:21 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:55:29 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 
 	init_stack(&a);
 	init_stack(&b);
+	if (argc < 2)
+		return (0);
 	if (parse_input(&a, argc, argv) < 0)
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
